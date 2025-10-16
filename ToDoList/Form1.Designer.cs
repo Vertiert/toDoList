@@ -60,6 +60,7 @@
             this.textBox1.Location = new System.Drawing.Point(162, 20);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(212, 33);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "TO DO LIST";
@@ -91,6 +92,7 @@
             this.textBox4.Location = new System.Drawing.Point(18, 124);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(225, 16);
             this.textBox4.TabIndex = 3;
             this.textBox4.Text = "Краткое описание";
@@ -101,23 +103,28 @@
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Location = new System.Drawing.Point(18, 66);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(155, 16);
             this.textBox5.TabIndex = 13;
             this.textBox5.Text = "Название задачи";
             // 
             // toDoListView
             // 
+            this.toDoListView.AllowUserToAddRows = false;
+            this.toDoListView.AllowUserToDeleteRows = false;
             this.toDoListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.toDoListView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toDoListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.toDoListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.toDoListView.Location = new System.Drawing.Point(18, 185);
+            this.toDoListView.Location = new System.Drawing.Point(28, 175);
             this.toDoListView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.toDoListView.Name = "toDoListView";
+            this.toDoListView.ReadOnly = true;
             this.toDoListView.RowHeadersWidth = 51;
             this.toDoListView.RowTemplate.Height = 24;
             this.toDoListView.Size = new System.Drawing.Size(776, 400);
             this.toDoListView.TabIndex = 9;
+            this.toDoListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.toDoListView_CellContentClick);
             // 
             // deletebutton
             // 

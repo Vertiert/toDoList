@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ToDoList
@@ -29,6 +22,13 @@ namespace ToDoList
             DataGridViewCheckBoxColumn checkCol = new DataGridViewCheckBoxColumn();
             checkCol.HeaderText = "Состояние";
             toDoListView.Columns.Add(checkCol);
+
+            toDoListView.ReadOnly = false;
+            toDoListView.Columns[0].ReadOnly = true;
+            toDoListView.Columns[1].ReadOnly = true; //s
+            toDoListView.Columns[2].ReadOnly = true;
+            toDoListView.Columns[3].ReadOnly = false;
+
 
             LoadData();
             this.FormClosing += (s, args) => SaveData();
@@ -61,7 +61,7 @@ namespace ToDoList
                         string task = row.Cells[0].Value?.ToString() ?? ""; //если стоят пустые данные 
                         string desc = row.Cells[1].Value?.ToString() ?? "";
                         string time = row.Cells[2].Value?.ToString() ?? "";
-                        string state = (row.Cells[3].Value?.ToString() ?? "False");
+                        string state = row.Cells[3].Value?.ToString() ?? "False";
 
                         writer.WriteLine($"{task}|{desc}|{time}|{state}");
                     }
@@ -81,6 +81,11 @@ namespace ToDoList
                 }
             }
             catch (Exception) { }
+        }
+
+        private void toDoListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
